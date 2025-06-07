@@ -14,7 +14,7 @@ namespace Actividad3LengProg3.Models
 
 
 
-        [Required(ErrorMessage = "Nombre es obligatorio")]
+        [Required(ErrorMessage = "Matricula es obligatoria")]
         [StringLength(15), MinLength(6)]
         [Display(Name = "Matrícula")]
         public string matricula_estudiante { get; set; }
