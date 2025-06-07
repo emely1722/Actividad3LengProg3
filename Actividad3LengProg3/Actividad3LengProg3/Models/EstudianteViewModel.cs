@@ -22,8 +22,8 @@ namespace Actividad3LengProg3.Models
 
 
         [Required(ErrorMessage = "Eliga una carrera")]
-        public string carrera { get; set; }
-        public List<SelectListItem> carreras { get; } = new()
+        public string carrera_estudiante { get; set; }
+        public List<SelectListItem> carreras { get; } = new List<SelectListItem>
     {
         new SelectListItem { Value = "Ingeniería en Software", Text = "Ingeniería en Sistemas" },
         new SelectListItem { Value = "Administración de Empresas", Text = "Administración de Empresas" },
@@ -34,13 +34,13 @@ namespace Actividad3LengProg3.Models
         [Required(ErrorMessage = "Correo Obligatorio.")]
         [EmailAddress (ErrorMessage = "Correo no válido")]
         [Display (Name= "Correo Institucional")]
-        public string correo { get; set; }
+        public string correo_estudiante { get; set; }
 
 
         [Phone]
         [MinLength(10)]
         [Display(Name = "Número")]
-        public string telefono { get; set; }
+        public string telefono_estudiante { get; set; }
 
 
         [Required(ErrorMessage = "Escriba su fecha de nacimiento")]
@@ -49,24 +49,44 @@ namespace Actividad3LengProg3.Models
         public DateTime fecha_nacimiento { get; set; }
 
         [Required]
-        public string Genero { get; set; }
+        [Display (Name = "Genero")]
+        public string genero_estudiante { get; set; }
 
-        [Required]
-        public string Turno { get; set; }
 
-        [Required]
-        public string TipoIngreso { get; set; }
+        [Required (ErrorMessage = "Elige Turno")]
+        [Display (Name = "Turno")]
+        public string turno { get; set; }
+        public List<SelectListItem> turnos { get; } = new List<SelectListItem>
+    {
+        new SelectListItem { Value = "Matutino", Text = "Matutino" },
+        new SelectListItem { Value = "Vespertino", Text = "Vespertino" },
+        new SelectListItem { Value = "Nocturno", Text = "Nocturno" }
+    };
 
-        public bool EstaBecado { get; set; }
+
+        [Required (ErrorMessage = "Tipo de Ingreso")]
+        [Display (Name = "Tipo de Ingreso")]
+        public string tipo_ingreso { get; set; }
+        public List<SelectListItem> ingreso { get; } = new List<SelectListItem>
+    {
+        new SelectListItem { Value = "Nuevo Ingreso", Text = "Nuevo Ingreso" },
+        new SelectListItem { Value = "Ingreso por Transferencia", Text = "Ingreso por Transferencia" },
+        new SelectListItem { Value = "Reingreso", Text = "Reingreso" },
+        new SelectListItem { Value = "Doctorado", Text = "Doctorado" }
+    };
+
+
+        public bool becado { get; set; }
+
+
 
         [Range(0, 100)]
-        public int? PorcentajeBeca { get; set; }
+        public int? porcentaje_beca { get; set; }
 
-        [Required, Range(typeof(bool), "true", "true", ErrorMessage = "Debe aceptar los términos.")]
-        public bool AceptaTerminos { get; set; }
+
+        [Required, Range(typeof(bool), "true", "true", ErrorMessage = "Aceptar términos y condiciones.")]
+        public bool terminos_condiciones { get; set; }
+
 
     }
 }
- 
-
-
