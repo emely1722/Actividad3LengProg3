@@ -12,10 +12,8 @@ namespace Actividad3LengProg3.Models
 
 
 
-
-
         [Required(ErrorMessage = "Matricula es obligatoria")]
-        [StringLength(15), MinLength(6)]
+        [StringLength(20), MinLength(6)]
         [Display(Name = "Matrícula")]
         public string matricula_estudiante { get; set; }
 
@@ -77,6 +75,7 @@ namespace Actividad3LengProg3.Models
     };
 
 
+        [Display (Name = "¿Tienes beca?")]
         public bool becado { get; set; }
 
 

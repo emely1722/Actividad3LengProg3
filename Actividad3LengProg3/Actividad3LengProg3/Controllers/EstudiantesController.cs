@@ -10,9 +10,10 @@ namespace Actividad3LengProg3.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View(new EstudianteViewModel());
         }
 
+        [HttpPost]
         public IActionResult Registrar(EstudianteViewModel model)
 
         {
@@ -20,7 +21,7 @@ namespace Actividad3LengProg3.Controllers
             {
                 estudiantes.Add(model);
                 TempData["Mensaje"] = "Estudiante registrado satisfactoriamente.";
-                return RedirectToAction("Index");
+                return RedirectToAction("Lista");
             }
             return View(model);
         }
@@ -36,7 +37,7 @@ namespace Actividad3LengProg3.Controllers
                 if (estudianteActual != null)
                 {
                     TempData["MensajeError"] = "Estudiante no existe";
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Lista");
                 }
 
                 estudianteActual.matricula_estudiante = model.matricula_estudiante;
@@ -46,10 +47,13 @@ namespace Actividad3LengProg3.Controllers
                 estudianteActual.telefono_estudiante = model.telefono_estudiante;
                 estudianteActual.fecha_nacimiento = model.fecha_nacimiento;
                 estudianteActual.genero_estudiante = model.genero_estudiante;
-                estudianteActual.turno = model.turno;
+                estudianteActual.turno = model.turno.ToString();
                 estudianteActual.tipo_ingreso = model.tipo_ingreso;
                 estudianteActual.becado = model.becado;
                 estudianteActual.porcentaje_beca = model.porcentaje_beca;
+
+                TempData["Mensaje"] = "Datos editados correctamente";
+                return RedirectToAction("Lista");
             }
 
             return View(model);
@@ -64,6 +68,13 @@ namespace Actividad3LengProg3.Controllers
                 estudiantes.Remove(estudiante);
             }
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult Lista()
+
+        {
+            return View(estudiantes);
         }
     }
 }
