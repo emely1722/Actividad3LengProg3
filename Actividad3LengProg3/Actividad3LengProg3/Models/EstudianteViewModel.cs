@@ -22,6 +22,7 @@ namespace Actividad3LengProg3.Models
 
 
         [Required(ErrorMessage = "Eliga una carrera")]
+        [Display(Name = "Carrera")]
         public string carrera_estudiante { get; set; }
         public List<SelectListItem> carreras { get; } = new List<SelectListItem>
     {
