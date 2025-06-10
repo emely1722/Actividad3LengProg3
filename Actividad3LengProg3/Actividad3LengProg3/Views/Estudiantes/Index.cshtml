@@ -35,15 +35,58 @@
     </div>
 
     <div>
-        <label asp-for="carrera_estudiante"></label>
-        <input asp-for="carrera_estudiante" class="form-control" />
-        <span asp-asp-validation-for="carrera_estudiante" class="text-danger"></span>
+        <label asp-for="carreras"></label>
+        <select asp-for="carreras" asp-items="Model.carreras" class="form-control"></select>
+        <span asp-asp-validation-for="carreras" class="text-danger"></span>
     </div>
 
     <div>
         <label asp-for="correo_estudiante"></label>
         <input asp-for="correo_estudiante" class="form-control" />
         <span asp-asp-validation-for="correo_estudiante" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="telefono_estudiante"></label>
+        <input asp-for="telefono_estudiante" class="form-control" />
+        <span asp-asp-validation-for="telefono_estudiante" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="fecha_nacimiento"></label>
+        <input asp-for="fecha_nacimiento" class="form-control" />
+        <span asp-asp-validation-for="fecha_nacimiento" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="genero_estudiante"></label>
+        <input asp-for="genero_estudiante" class="form-control" type="radio" value="F" /> 
+        <input asp-for="genero_estudiante" class="form-control" type="radio" value="M" /> 
+        <span asp-asp-validation-for="genero_estudiante" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="turno"></label>
+        <input asp-for="turno" class="form-control" />
+        <span asp-asp-validation-for="turno" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="tipo_ingreso"></label>
+        <input asp-for="tipo_ingreso" class="form-control" />
+        <span asp-asp-validation-for="tipo_ingreso" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="becado"></label>
+        <input asp-for="becado" class="form-control" />
+        <span asp-asp-validation-for="becado" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="porcentaje_beca"></label>
+        <input asp-for="porcentaje_beca" class="form-control" />
+        <span asp-asp-validation-for="porcentaje_beca" class="text-danger"></span>
     </div>
 
     <div class="row">
