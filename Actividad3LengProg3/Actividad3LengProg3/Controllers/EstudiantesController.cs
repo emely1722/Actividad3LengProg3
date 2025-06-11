@@ -62,13 +62,12 @@ namespace Actividad3LengProg3.Controllers
 
         public IActionResult Eliminar(string matricula)
         {
-            EstudianteViewModel estudiante = new EstudianteViewModel();
-            if (!ModelState.IsValid)
-            {
-                estudiantes.Remove(estudiante);
-            }
-            return RedirectToAction("Index");
+            var estudiante = estudiantes.FirstOrDefault(e => e.matricula_estudiante == matricula);
+            if (estudiante != null) estudiantes.Remove(estudiante);
+            TempData["Mensaje"] = "Estudiante eliminado.";
+            return RedirectToAction("Lista");
         }
+
 
         [HttpGet]
         public IActionResult Lista()

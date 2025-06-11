@@ -88,7 +88,7 @@ namespace Actividad3LengProg3.Models
 
 
 		[Display(Name = "Acepte los términos y condiciones.")]
-		[Required, Range(typeof(bool), "true", "true", ErrorMessage = "Aceptar términos y condiciones.")]
+		[Required, Range(typeof(bool), "true", "true", ErrorMessage = "Debe aceptar términos y condiciones.")]
         public bool terminos_condiciones { get; set; }
 
 

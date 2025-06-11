@@ -28,7 +28,7 @@
                     <th>Turno</th>
                     <th>Tipo de Ingreso</th>
                     <th>¿Tienes beca?</th>
-                    <th>Agregue su porcentaje de beca</th>
+                    <th>Porcentaje de Beca</th>
                     <th></th>
                 </tr>
             </thead>
@@ -47,8 +47,12 @@
                             <td>@it.Turno</td>
                             <td>@it.Tipo de Ingreso</td>
                             <td>@it.¿Tienes beca?</td>
-                            <td>@it.Agregue su porcentaje de beca</td>
-                            <td><a href="/Estudiantes/Editar/@it.nombre_usuario" class="btn btn-secondary">Editar</a></td>
+                            <td>@it.Porcentaje de Beca</td>
+                            <td>
+                            <a href="/Estudiantes/Editar/@it.nombre_usuario" class="btn btn-secondary">Editar</a>
+                            <a asp-action="Eliminar" asp-route-matricula="@it.matricula_estudiante" class="btn btn-danger">Eliminar</a>
+                            </td>
+
                         </tr>
                     }
                 }

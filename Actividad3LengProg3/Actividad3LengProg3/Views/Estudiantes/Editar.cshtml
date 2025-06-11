@@ -6,20 +6,21 @@
 
 @model EstudianteViewModel
 
+<h2>
+    Editar Estudiante
+</h2>
 
-@section scripts 
+@section scripts
 {
-	<partial name ="_ValidationScriptsPartial" />
+	<partial name="_ValidationScriptsPartial" />
 }
-
-<h1>Registro de Estudiantes</h1>
 
 @if (TempData["Mensaje"] != null)
 {
 	<div class="alert alert-success">@TempData["Mensaje"]</div>
 }
 
-<form asp-action="Registrar" method="post">
+<form asp-action="Editar" method="post">
 	<div>
 		<label asp-for="nombre_estudiante"></label>
 		<input asp-for="nombre_estudiante" class="form-control" />
@@ -99,7 +100,6 @@
 
 
 	<div>
-		<div class="form-check"></div>
 		<label asp-for="terminos_condiciones"></label>
 		<input type="checkbox" asp-for="terminos_condiciones" />
 		<span asp-validation-for="terminos_condiciones"></span>
@@ -110,7 +110,7 @@
 		<div class="col-6">
 			<br />
 			<button type="submit" class="btn btn-primary" size="30px">Registrar</button>
-			<button a href="/Estudiantes/Lista" class="btn btn-secondary" size="30px">Estudiantes</button>
+			<button a href="Lista" class="btn btn-secondary" size="30px">Estudiantes</button>
 		</div>
 	</div>
 
