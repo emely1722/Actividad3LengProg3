@@ -1,8 +1,9 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿
 @{
 }
+
+@model List<EstudianteViewModel>
+
 
 @if (TempData["MensajeError"] != null)
 {
@@ -37,19 +38,19 @@
                     foreach (var it in Model)
                     {
                         <tr>
-                            <td>@it.Nombre completo del estudiante</td>
-                            <td>@it.Matrícula</td>
-                            <td>@it.Carrera</td>
-                            <td>@it.Correo Institucional</td>
-                            <td>@it.Teléfono</td>
-                            <td>@it.Fecha de nacimiento</td>
-                            <td>@it.Género</td>
-                            <td>@it.Turno</td>
-                            <td>@it.Tipo de Ingreso</td>
-                            <td>@it.¿Tienes beca?</td>
-                            <td>@it.Porcentaje de Beca</td>
+                            <td>@it.nombre_estudiante</td>
+                            <td>@it.matricula_estudiante</td>
+                            <td>@it.carrera_estudiante</td>
+                            <td>@it.correo_estudiante</td>
+                            <td>@it.telefono_estudiante</td>
+                            <td>@it.fecha_nacimiento</td>
+                            <td>@it.genero_estudiante</td>
+                            <td>@it.turno</td>
+                            <td>@it.tipo_ingreso</td>
+                            <td>@it.becado</td>
+                            <td>@it.porcentaje_beca</td>
                             <td>
-                            <a href="/Estudiantes/Editar/@it.nombre_usuario" class="btn btn-secondary">Editar</a>
+                            <a asp-action="Editar" asp-route-matricula="@it.matricula_estudiante" class="btn btn-secondary">Editar</a>
                             <a asp-action="Eliminar" asp-route-matricula="@it.matricula_estudiante" class="btn btn-danger">Eliminar</a>
                             </td>
 

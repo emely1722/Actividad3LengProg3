@@ -27,33 +27,37 @@ namespace Actividad3LengProg3.Controllers
         }
 
         [HttpPost]
-        public IActionResult Editar (EstudianteViewModel model)
+        public IActionResult Editar(EstudianteViewModel model)
         {
             if (ModelState.IsValid)
             {
                 EstudianteViewModel estudianteActual = estudiantes.FirstOrDefault(e => e.matricula_estudiante.Equals(model.matricula_estudiante));
 
 
-                if (estudianteActual != null)
+                if (estudianteActual == null)
                 {
                     TempData["MensajeError"] = "Estudiante no existe";
                     return RedirectToAction("Lista");
                 }
 
-                estudianteActual.matricula_estudiante = model.matricula_estudiante;
-                estudianteActual.nombre_estudiante = model.nombre_estudiante;
-                estudianteActual.carrera_estudiante = model.carrera_estudiante;
-                estudianteActual.correo_estudiante = model.correo_estudiante;
-                estudianteActual.telefono_estudiante = model.telefono_estudiante;
-                estudianteActual.fecha_nacimiento = model.fecha_nacimiento;
-                estudianteActual.genero_estudiante = model.genero_estudiante;
-                estudianteActual.turno = model.turno.ToString();
-                estudianteActual.tipo_ingreso = model.tipo_ingreso;
-                estudianteActual.becado = model.becado;
-                estudianteActual.porcentaje_beca = model.porcentaje_beca;
+                if (estudianteActual != null)
+                {
+                    estudianteActual.matricula_estudiante = model.matricula_estudiante;
+                    estudianteActual.nombre_estudiante = model.nombre_estudiante;
+                    estudianteActual.carrera_estudiante = model.carrera_estudiante;
+                    estudianteActual.correo_estudiante = model.correo_estudiante;
+                    estudianteActual.telefono_estudiante = model.telefono_estudiante;
+                    estudianteActual.fecha_nacimiento = model.fecha_nacimiento;
+                    estudianteActual.genero_estudiante = model.genero_estudiante;
+                    estudianteActual.turno = model.turno.ToString();
+                    estudianteActual.tipo_ingreso = model.tipo_ingreso;
+                    estudianteActual.becado = model.becado;
+                    estudianteActual.porcentaje_beca = model.porcentaje_beca;
 
-                TempData["Mensaje"] = "Datos editados correctamente";
-                return RedirectToAction("Lista");
+                    TempData["Mensaje"] = "Datos editados correctamente";
+                    return RedirectToAction("Lista");
+
+                }
             }
 
             return View(model);
@@ -74,6 +78,27 @@ namespace Actividad3LengProg3.Controllers
 
         {
             return View(estudiantes);
+        }
+
+
+        [HttpGet]
+        public IActionResult Editar(string matricula)
+        {
+            if (string.IsNullOrEmpty(matricula))
+            {
+                TempData["MensajeError"] = "Matricula no existe.";
+                return RedirectToAction("Lista");
+            }
+
+            EstudianteViewModel estudianteActual = estudiantes.FirstOrDefault(e => e.matricula_estudiante.Equals(matricula));
+
+            if (estudianteActual == null)
+            {
+                TempData["MensajeError"] = "Estudiante no existe.";
+                return RedirectToAction("Lista");
+            }
+
+            return View(estudianteActual);
         }
     }
 }

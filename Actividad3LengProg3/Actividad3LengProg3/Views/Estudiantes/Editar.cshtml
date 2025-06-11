@@ -10,11 +10,6 @@
     Editar Estudiante
 </h2>
 
-@section scripts
-{
-	<partial name="_ValidationScriptsPartial" />
-}
-
 @if (TempData["Mensaje"] != null)
 {
 	<div class="alert alert-success">@TempData["Mensaje"]</div>
@@ -109,7 +104,7 @@
 	<div class="row">
 		<div class="col-6">
 			<br />
-			<button type="submit" class="btn btn-primary" size="30px">Registrar</button>
+			<button type="submit" class="btn btn-primary" size="30px">Editar</button>
 			<button a href="Lista" class="btn btn-secondary" size="30px">Estudiantes</button>
 		</div>
 	</div>
