@@ -24,7 +24,7 @@ namespace Actividad3LengProg3.Models
         public string carrera_estudiante { get; set; }
         public List<SelectListItem> carreras { get; } = new List<SelectListItem>
     {
-        new SelectListItem { Value = "Ingeniería en Software", Text = "Ingeniería en Sistemas" },
+        new SelectListItem { Value = "Ingeniería en Software", Text = "Ingeniería en Software" },
         new SelectListItem { Value = "Administración de Empresas", Text = "Administración de Empresas" },
         new SelectListItem { Value = "Odontología", Text = "Odontología" },
     };
@@ -80,11 +80,15 @@ namespace Actividad3LengProg3.Models
 
 
 
-        [Range(0, 100)]
+
+		[Display(Name = "Agrege su porcentaje de beca.")]
+		[Range(0, 100)]
         public int? porcentaje_beca { get; set; }
 
 
-        [Required, Range(typeof(bool), "true", "true", ErrorMessage = "Aceptar términos y condiciones.")]
+
+		[Display(Name = "Acepte los términos y condiciones.")]
+		[Required, Range(typeof(bool), "true", "true", ErrorMessage = "Aceptar términos y condiciones.")]
         public bool terminos_condiciones { get; set; }
 
 
