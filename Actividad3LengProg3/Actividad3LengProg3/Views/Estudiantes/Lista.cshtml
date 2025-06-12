@@ -5,13 +5,18 @@
 @model List<EstudianteViewModel>
 
 
+@if (TempData["Mensaje"] != null)
+{
+    <div class="alert alert-success">@TempData["Mensaje"]</div>
+}
+
 @if (TempData["MensajeError"] != null)
 {
     <div class="alert alert-danger">@TempData["MensajeError"]</div>
 }
 
 <h4>
-    Lista de Usuario
+    Lista de Estudiantes
 </h4>
 
 <div class="row">
